@@ -10,10 +10,12 @@ import { MenuItem } from "../models/models";
 
 const App: React.FC = () => {
   const [menu, setMenu] = useState<MenuItem[]>([]);
+  const [restaurantName, setRestaurantName] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3001/restaurants").then((response) => {
+    axios.get("http://localhost:3001/restaurant").then((response) => {
       setMenu(response.data[0].menu);
+      setRestaurantName(response.data[0].name)
     });
   }, []);
 
@@ -22,7 +24,16 @@ const App: React.FC = () => {
       <NavBar />
       <Container className="mb-4">
         <Routes>
-          <Route path="/" element={<Menu menu={menu} setMenu={setMenu} />} />
+          <Route
+            path="/"
+            element={
+              <Menu
+                menu={menu}
+                setMenu={setMenu}
+                restaurantName={restaurantName}
+              />
+            }
+          />
           <Route path="/kitchen" element={<Kitchen />} />
           <Route path="/orders" element={<Orders />} />
         </Routes>

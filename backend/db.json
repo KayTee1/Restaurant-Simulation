@@ -1,5 +1,5 @@
 {
-  "restaurants": [
+  "restaurant": [
     {
       "id": 1,
       "name": "Tasty Delights",
@@ -16,7 +16,7 @@
         {
           "id": 102,
           "name": "Salad",
-          "price": 6.49,
+          "price": 4.49,
           "category": "Appetizer",
           "description": "A refreshing medley of crisp lettuce, colorful vegetables, and a zesty vinaigrette dressing. Topped with croutons for added crunch. Allergens: Gluten (croutons).",
           "imgUrl": "../public/imgs/salad.png"
@@ -24,7 +24,7 @@
         {
           "id": 103,
           "name": "Ice Cream",
-          "price": 3.99,
+          "price": 2.49,
           "category": "Dessert",
           "description": "Creamy and indulgent, our ice cream is a delightful treat made with rich dairy, churned to perfection. Available in various flavors to satisfy your cravings. Allergens: Dairy.",
           "imgUrl": "../public/imgs/iceCream.png"
@@ -32,7 +32,7 @@
         {
           "id": 104,
           "name": "Steak",
-          "price": 19.99,
+          "price": 14.99,
           "category": "Main Course",
           "description": "A succulent cut of perfectly grilled steak, seasoned to perfection and served with your choice of sides. Allergens: None.",
           "imgUrl": "../public/imgs/steak.png"
@@ -40,7 +40,7 @@
         {
           "id": 105,
           "name": "Mozzarella Sticks",
-          "price": 5.99,
+          "price": 3.99,
           "category": "Appetizer",
           "description": "Crispy and cheesy mozzarella sticks, served with a tangy marinara sauce for dipping. Allergens: Dairy.",
           "imgUrl": "../public/imgs/mozzarellaSticks.png"
@@ -48,12 +48,15 @@
         {
           "id": 106,
           "name": "Cheesecake",
-          "price": 4.99,
+          "price": 2.99,
           "category": "Dessert",
           "description": "Indulge in our velvety smooth cheesecake, topped with a drizzle of fruit sauce. Allergens: Dairy, Gluten (crust).",
           "imgUrl": "../public/imgs/cheeseCake.png"
         }
       ]
     }
+  ],
+  "orders":[
+    
   ]
 }
