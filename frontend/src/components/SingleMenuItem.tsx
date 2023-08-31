@@ -1,0 +1,34 @@
+import React from "react";
+import { MenuItem } from "../../models/models";
+import { Card } from "react-bootstrap";
+import { formatCurrency } from "../utilities/formatCurrency";
+
+interface Props {
+  menuItem: MenuItem;
+  setMenu?: React.Dispatch<React.SetStateAction<MenuItem[]>>;
+}
+
+const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
+  const { id, name, price, imgUrl, category, description } = menuItem;
+
+  console.log(id, category, description);
+
+  return (
+    <Card>
+      <Card.Img
+        variant="top"
+        src={imgUrl}
+        height="200px"
+        style={{ objectFit: "cover" }}
+      ></Card.Img>
+      <Card.Body className="d-flex flex-column">
+        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+          <span className="fs-2">{name}</span>
+          <span className="ms-2 text-muted">{formatCurrency(price)}</span>
+        </Card.Title>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export default SingleMenuItem;
