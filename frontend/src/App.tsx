@@ -14,8 +14,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3001/restaurant").then((response) => {
-      setMenu(response.data[0].menu);
-      setRestaurantName(response.data[0].name)
+    setMenu(response.data[0].menu);
+      setRestaurantName(response.data[0].name);
     });
   }, []);
 

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuItem } from "../../models/models";
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
+import axios from "axios";
 
 interface Props {
   menuItem: MenuItem;
@@ -9,14 +10,33 @@ interface Props {
 }
 
 const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
-  const { id, name, price, imgUrl, category, description } = menuItem;
+  const { id, name, price, imgUrl } = menuItem;
 
   const [quantity, setQuantity] = useState(0);
+  const [orderData, setOrderData] = useState({});
 
-  console.log(id, category, description);
-  const addOrder = () => {
+  useEffect(() => {
+    if (Object.keys(orderData).length > 0) {
+      axios
+        .post("http://localhost:3001/orders", orderData)
+        .then((response) => {
+          console.log("Order posted successfully", response);
+        })
+        .catch((error) => {
+          console.error("Error posting order:", error);
+        });
+    }
+  }, [orderData]);
+
+  const addOrder = (id: number, name: string, imgUrl: string) => {
     setQuantity(quantity + 1);
+    setOrderData({
+      id: id,
+      name: name,
+      image: imgUrl,
+    });
   };
+
   const removeOrder = () => {
     setQuantity(quantity - 1);
   };
@@ -36,7 +56,10 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button className="w-100" onClick={addOrder}>
+            <Button
+              className="w-100"
+              onClick={() => addOrder(id, name, imgUrl)}
+            >
               Place an Order
             </Button>
           ) : (
