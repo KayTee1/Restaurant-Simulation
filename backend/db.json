@@ -56,5 +56,18 @@
       ]
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": 102,
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
+    }
+  ],
+  "orderHistory": [
+    {
+      "id": 102,
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
+    }
+  ]
 }

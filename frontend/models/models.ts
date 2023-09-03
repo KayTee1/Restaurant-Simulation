@@ -6,3 +6,9 @@ export interface MenuItem {
   description: string;
   imgUrl: string;
 }
+
+export interface Order {
+  id: number;
+  name: string;
+  image: string;
+}

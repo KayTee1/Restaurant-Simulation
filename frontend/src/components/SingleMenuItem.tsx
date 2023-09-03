@@ -20,10 +20,22 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
       axios
         .post("http://localhost:3001/orders", orderData)
         .then((response) => {
-          console.log("Order posted successfully", response);
+          console.log("Order placed in /orders successfully:", response.data);
         })
         .catch((error) => {
-          console.error("Error posting order:", error);
+          console.error("Error placing order in /orders:", error);
+        });
+
+      axios
+        .post("http://localhost:3001/orderHistory", orderData)
+        .then((response) => {
+          console.log(
+            "Order placed in /orderHistory successfully:",
+            response.data
+          );
+        })
+        .catch((error) => {
+          console.error("Error placing order in /orderHistory:", error);
         });
     }
   }, [orderData]);

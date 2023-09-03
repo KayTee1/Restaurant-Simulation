@@ -1,28 +1,28 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import axios from "axios";
+import { Order } from "../../models/models";
 
 interface OrderCardProps {
-  orderId: number;
-  orderName: string;
-  orderImage: string;
-  onDelete: (orderId: number) => void;
+  order: Order;
+  orders: Order[];
+  setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
-const OrderCard: React.FC<OrderCardProps> = (Props: OrderCardProps) => {
-  const { orderId, orderName, orderImage, onDelete } = Props;
-
-  const handleRemoveOrder = () => {
-    const apiUrl = `http://localhost:3001/orders/${orderId}`;
+const OrderCard: React.FC<OrderCardProps> = ({
+  order,
+  orders,
+  setOrders,
+}: OrderCardProps) => {
+  const handleRemoveOrder = (id: number) => {
+    const apiUrl = `http://localhost:3001/orders/${order.id}`;
 
     axios
       .delete(apiUrl)
       .then((response) => {
         console.log("Resource deleted successfully:", response);
 
-        onDelete(orderId);
-
-        //window.location.reload();
+        setOrders(orders.filter((order) => order.id !== id));
       })
       .catch((error) => {
         console.error("Error deleting resource:", error);
@@ -33,15 +33,15 @@ const OrderCard: React.FC<OrderCardProps> = (Props: OrderCardProps) => {
     <Card className="h-100">
       <Card.Img
         variant="top"
-        src={orderImage}
+        src={order.image}
         height="200px"
         style={{ objectFit: "cover" }}
       ></Card.Img>
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{orderName}</span>
+          <span className="fs-2">{order.name}</span>
         </Card.Title>
-        <Button className="w-100" onClick={() => handleRemoveOrder()}>
+        <Button className="w-100" onClick={() => handleRemoveOrder(order.id)}>
           Ready
         </Button>
       </Card.Body>

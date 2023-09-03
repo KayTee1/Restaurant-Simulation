@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SingleMenuItem from "../components/SingleMenuItem";
 import { MenuItem } from "../../models/models";
 import { Col, Row } from "react-bootstrap";
+import axios from "axios";
 
-interface Props {
-  menu: MenuItem[];
-  setMenu?: React.Dispatch<React.SetStateAction<MenuItem[]>>;
-  restaurantName: string;
-}
+const Menu: React.FC = () => {
+  const [menu, setMenu] = useState<MenuItem[]>([]);
+  const [restaurantName, setRestaurantName] = useState("");
 
-const Menu: React.FC<Props> = ({ menu, restaurantName }: Props) => {
+  useEffect(() => {
+    axios.get("http://localhost:3001/restaurant").then((response) => {
+      setMenu(response.data[0].menu);
+      setRestaurantName(response.data[0].name);
+    });
+  }, []);
+
   const mainCourse = menu.filter((item) => item.category === "Main Course");
   const appetizers = menu.filter((item) => item.category === "Appetizer");
   const desserts = menu.filter((item) => item.category === "Dessert");
