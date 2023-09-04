@@ -69,8 +69,8 @@
     },
     {
       "id": 3,
-      "name": "Mozzarella Sticks",
-      "image": "../public/imgs/mozzarellaSticks.png"
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
     }
   ],
   "orderHistory": [
@@ -86,8 +86,8 @@
     },
     {
       "id": 3,
-      "name": "Mozzarella Sticks",
-      "image": "../public/imgs/mozzarellaSticks.png"
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
     }
   ]
 }

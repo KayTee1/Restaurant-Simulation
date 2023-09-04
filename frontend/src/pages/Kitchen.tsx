@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import OrderCard from "../components/OrderCard";
+import OrderCard from "../components/KitchenOrderCard";
 import { Order } from "../../models/models";
 
 interface OrderProps {

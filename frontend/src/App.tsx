@@ -22,7 +22,12 @@ const App: React.FC = () => {
               <Kitchen orders={orderedItems} setOrders={setOrderedItems} />
             }
           />
-          <Route path="/orders" element={<Orders orders={orderedItems} setOrders={setOrderedItems}/>} />
+          <Route
+            path="/orders"
+            element={
+              <Orders orders={orderedItems} setOrders={setOrderedItems} />
+            }
+          />
         </Routes>
       </Container>
     </>

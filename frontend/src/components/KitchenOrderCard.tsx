@@ -3,17 +3,17 @@ import { Button, Card } from "react-bootstrap";
 import axios from "axios";
 import { Order } from "../../models/models";
 
-interface OrderCardProps {
+interface Props {
   order: Order;
   orders: Order[];
   setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({
+const KitchenOrderCard: React.FC<Props> = ({
   order,
   orders,
   setOrders,
-}: OrderCardProps) => {
+}: Props) => {
   const handleRemoveOrder = (id: number) => {
     const apiUrl = `http://localhost:3001/orders/${order.id}`;
 
@@ -49,4 +49,4 @@ const OrderCard: React.FC<OrderCardProps> = ({
   );
 };
 
-export default OrderCard;
+export default KitchenOrderCard;
