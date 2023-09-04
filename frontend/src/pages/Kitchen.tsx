@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import OrderCard from "../components/KitchenOrderCard";
 import { Order } from "../../models/models";
@@ -6,24 +6,31 @@ import { Order } from "../../models/models";
 interface OrderProps {
   orders: Order[];
   setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
+  isEmpty: boolean;
+  setIsEmpty: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Kitchen: React.FC<OrderProps> = ({ orders, setOrders }: OrderProps) => {
-  const [isEmpty, setIsEmpty] = useState(true);
-
+const Kitchen: React.FC<OrderProps> = ({
+  orders,
+  setOrders,
+  isEmpty,
+  setIsEmpty,
+}: OrderProps) => {
   useEffect(() => {
-    axios.get("http://localhost:3001/orders").then((response) => {
+    const apiLink = "http://localhost:3001/orders";
+    axios.get(apiLink).then((response) => {
       const ordersFromApi = response.data;
-      ordersFromApi.length === 0 ? setIsEmpty(true) : setIsEmpty(false);
       setOrders(ordersFromApi);
+
+      setIsEmpty(ordersFromApi.length === 0);
     });
-  }, [setOrders]);
+  });
 
   return (
     <>
       <h1>Kitchen</h1>
 
-      {isEmpty === true ? (
+      {isEmpty ? (
         <h2 className="mt-5">No Orders</h2>
       ) : (
         <>

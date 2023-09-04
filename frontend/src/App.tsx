@@ -9,6 +9,10 @@ import { Order } from "../models/models";
 
 const App: React.FC = () => {
   const [orderedItems, setOrderedItems] = useState<Order[]>([]);
+  const [isKitchenEmpty, setIsKitchenEmpty] = useState<boolean>(true);
+
+  const [foodNames, setFoodNames] = useState<string[]>([]);
+  const [isOrderHistoryEmpty, setOrderHistoryEmpty] = useState<boolean>(true);
 
   return (
     <>
@@ -19,13 +23,23 @@ const App: React.FC = () => {
           <Route
             path="/kitchen"
             element={
-              <Kitchen orders={orderedItems} setOrders={setOrderedItems} />
+              <Kitchen
+                orders={orderedItems}
+                setOrders={setOrderedItems}
+                isEmpty={isKitchenEmpty}
+                setIsEmpty={setIsKitchenEmpty}
+              />
             }
           />
           <Route
             path="/orders"
             element={
-              <Orders orders={orderedItems} setOrders={setOrderedItems} />
+              <Orders
+                foodNames={foodNames}
+                setFoodNames={setFoodNames}
+                isEmpty={isOrderHistoryEmpty}
+                setIsEmpty={setOrderHistoryEmpty}
+              />
             }
           />
         </Routes>

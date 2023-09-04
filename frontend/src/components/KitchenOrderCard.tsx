@@ -14,6 +14,7 @@ const KitchenOrderCard: React.FC<Props> = ({
   orders,
   setOrders,
 }: Props) => {
+  
   const handleRemoveOrder = (id: number) => {
     const apiUrl = `http://localhost:3001/orders/${order.id}`;
 

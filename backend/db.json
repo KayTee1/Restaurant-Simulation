@@ -11,7 +11,7 @@
           "price": 8.99,
           "category": "Main Course",
           "description": "A classic beef patty served in a soft bun, topped with fresh lettuce, juicy tomato slices, melted cheese, and a touch of tangy ketchup. Allergens: Dairy (cheese).",
-          "imgUrl": "../public/imgs/burger.png"
+          "imgUrl": "../imgs/burger.png"
         },
         {
           "id": 102,
@@ -19,7 +19,7 @@
           "price": 4.49,
           "category": "Appetizer",
           "description": "A refreshing medley of crisp lettuce, colorful vegetables, and a zesty vinaigrette dressing. Topped with croutons for added crunch. Allergens: Gluten (croutons).",
-          "imgUrl": "../public/imgs/salad.png"
+          "imgUrl": "../imgs/salad.png"
         },
         {
           "id": 103,
@@ -27,7 +27,7 @@
           "price": 2.49,
           "category": "Dessert",
           "description": "Creamy and indulgent, our ice cream is a delightful treat made with rich dairy, churned to perfection. Available in various flavors to satisfy your cravings. Allergens: Dairy.",
-          "imgUrl": "../public/imgs/iceCream.png"
+          "imgUrl": "../imgs/iceCream.png"
         },
         {
           "id": 104,
@@ -35,7 +35,7 @@
           "price": 14.99,
           "category": "Main Course",
           "description": "A succulent cut of perfectly grilled steak, seasoned to perfection and served with your choice of sides. Allergens: None.",
-          "imgUrl": "../public/imgs/steak.png"
+          "imgUrl": "../imgs/steak.png"
         },
         {
           "id": 105,
@@ -43,7 +43,7 @@
           "price": 3.99,
           "category": "Appetizer",
           "description": "Crispy and cheesy mozzarella sticks, served with a tangy marinara sauce for dipping. Allergens: Dairy.",
-          "imgUrl": "../public/imgs/mozzarellaSticks.png"
+          "imgUrl": "../imgs/mozzarellaSticks.png"
         },
         {
           "id": 106,
@@ -51,43 +51,11 @@
           "price": 2.99,
           "category": "Dessert",
           "description": "Indulge in our velvety smooth cheesecake, topped with a drizzle of fruit sauce. Allergens: Dairy, Gluten (crust).",
-          "imgUrl": "../public/imgs/cheeseCake.png"
+          "imgUrl": "../imgs/cheeseCake.png"
         }
       ]
     }
   ],
-  "orders": [
-    {
-      "id": 1,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    },
-    {
-      "id": 2,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    },
-    {
-      "id": 3,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    }
-  ],
-  "orderHistory": [
-    {
-      "id": 1,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    },
-    {
-      "id": 2,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    },
-    {
-      "id": 3,
-      "name": "Salad",
-      "image": "../public/imgs/salad.png"
-    }
-  ]
+  "orders": [],
+  "orderHistory": []
 }

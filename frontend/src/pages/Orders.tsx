@@ -1,11 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import PieChart from "../components/PieChart";
 import { Button } from "react-bootstrap";
 
-const Orders: React.FC = () => {
-  const [foodNames, setFoodNames] = useState<string[]>([]);
-  const [isEmpty, setIsEmpty] = useState<boolean>(true);
+interface OrdersProps {
+  foodNames: string[];
+  setFoodNames: React.Dispatch<React.SetStateAction<string[]>>;
+  isEmpty: boolean;
+  setIsEmpty: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Orders: React.FC<OrdersProps> = ({
+  foodNames,
+  setFoodNames,
+  isEmpty,
+  setIsEmpty
+}: OrdersProps) => {
   const orderHistoryApi = "http://localhost:3001/orderHistory";
 
   useEffect(() => {
@@ -18,7 +28,7 @@ const Orders: React.FC = () => {
       setFoodNames(names);
       setIsEmpty(names.length === 0);
     });
-  }, [foodNames.length]);
+  });
 
   const resetChart = () => {
     if (window.confirm("Are you sure?\nThis will reset the orders!!")) {
@@ -30,6 +40,7 @@ const Orders: React.FC = () => {
           console.log("Deleted", res);
         });
       }
+      setIsEmpty(true);
     }
   };
 
