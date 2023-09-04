@@ -10,10 +10,11 @@ interface Props {
 }
 
 const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
-  const { id, name, price, imgUrl } = menuItem;
+  const {name, price, imgUrl } = menuItem;
 
   const [quantity, setQuantity] = useState(0);
   const [orderData, setOrderData] = useState({});
+  const [ordersCount, setOrdersCount] = useState(0);
 
   useEffect(() => {
     if (Object.keys(orderData).length > 0) {
@@ -40,13 +41,14 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
     }
   }, [orderData]);
 
-  const addOrder = (id: number, name: string, imgUrl: string) => {
+  const addOrder = (name: string, imgUrl: string) => {
     setQuantity(quantity + 1);
     setOrderData({
-      id: id,
+      id: ordersCount,
       name: name,
       image: imgUrl,
     });
+    setOrdersCount(ordersCount+1);
   };
 
   const removeOrder = () => {
@@ -70,7 +72,7 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
           {quantity === 0 ? (
             <Button
               className="w-100"
-              onClick={() => addOrder(id, name, imgUrl)}
+              onClick={() => addOrder(name, imgUrl)}
             >
               Place an Order
             </Button>

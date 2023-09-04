@@ -58,16 +58,36 @@
   ],
   "orders": [
     {
-      "id": 102,
+      "id": 1,
       "name": "Salad",
       "image": "../public/imgs/salad.png"
+    },
+    {
+      "id": 2,
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
+    },
+    {
+      "id": 3,
+      "name": "Mozzarella Sticks",
+      "image": "../public/imgs/mozzarellaSticks.png"
     }
   ],
   "orderHistory": [
     {
-      "id": 102,
+      "id": 1,
       "name": "Salad",
       "image": "../public/imgs/salad.png"
+    },
+    {
+      "id": 2,
+      "name": "Salad",
+      "image": "../public/imgs/salad.png"
+    },
+    {
+      "id": 3,
+      "name": "Mozzarella Sticks",
+      "image": "../public/imgs/mozzarellaSticks.png"
     }
   ]
 }

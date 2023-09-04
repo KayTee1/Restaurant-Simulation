@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
 import axios from "axios";
+import PieChart from "../components/PieChart";
 
 const Orders: React.FC = () => {
   const [foodNames, setFoodNames] = useState<string[]>([]);
@@ -16,11 +16,10 @@ const Orders: React.FC = () => {
     });
   }, []);
 
-
-
   return (
     <>
-      <h1>Orders</h1>
+      <h1>All orders from today</h1>
+      <PieChart foodNames={foodNames} />
     </>
   );
 };
