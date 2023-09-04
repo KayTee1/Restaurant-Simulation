@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Menu: React.FC = () => {
   const [menu, setMenu] = useState<MenuItem[]>([]);
-  const [restaurantName, setRestaurantName] = useState("");
+  const [restaurantName, setRestaurantName] = useState<string>("");
   
   useEffect(() => {
     axios.get("http://localhost:3001/restaurant").then((response) => {

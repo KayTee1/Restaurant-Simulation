@@ -10,6 +10,6 @@ export interface MenuItem {
 export interface Order {
   id: number;
   name: string;
-  image?: string;
+  image: string;
 }
 

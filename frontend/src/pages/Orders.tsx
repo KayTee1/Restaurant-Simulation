@@ -4,8 +4,10 @@ import PieChart from "../components/PieChart";
 import { Button } from "react-bootstrap";
 
 interface OrdersProps {
+  //foodNames = the food names of all the orders
   foodNames: string[];
   setFoodNames: React.Dispatch<React.SetStateAction<string[]>>;
+  // isEmpty = is there any orders in the orderHistory array
   isEmpty: boolean;
   setIsEmpty: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -16,8 +18,9 @@ const Orders: React.FC<OrdersProps> = ({
   isEmpty,
   setIsEmpty
 }: OrdersProps) => {
-  const orderHistoryApi = "http://localhost:3001/orderHistory";
 
+  const orderHistoryApi = "http://localhost:3001/orderHistory";
+  //  getting date for the chart
   useEffect(() => {
     axios.get(orderHistoryApi).then((response) => {
       const res = response.data;
@@ -30,8 +33,11 @@ const Orders: React.FC<OrdersProps> = ({
     });
   });
 
+  //resetChart = empties orderHistory array
   const resetChart = () => {
+    //asking for confirmation
     if (window.confirm("Are you sure?\nThis will reset the orders!!")) {
+      //deleting each order object from the database
       for (const count in foodNames) {
         const id: number = parseInt(count) + 1;
 
@@ -40,10 +46,11 @@ const Orders: React.FC<OrdersProps> = ({
           console.log("Deleted", res);
         });
       }
+      //  after deleting everything set empty to true
       setIsEmpty(true);
     }
   };
-
+ 
   return (
     <>
       <h1 className="mb-3">All orders from today</h1>
