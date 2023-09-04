@@ -6,6 +6,7 @@ interface PieChartProps {
   foodNames: string[];
 }
 type FoodCounts = {
+  //using food name as the key
   [name: string]: number;
 };
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -14,6 +15,10 @@ const PieChart: React.FC<PieChartProps> = ({ foodNames }: PieChartProps) => {
   const foodCounts: FoodCounts = {};
 
   foodNames.forEach((name) => {
+    //if foodName (burger) already exists:
+    //  then burger count getes incremented
+    //if not then that specific food item gets
+    //initialized with a count of 1
     foodCounts[name] ? (foodCounts[name] += 1) : (foodCounts[name] = 1);
   });
 

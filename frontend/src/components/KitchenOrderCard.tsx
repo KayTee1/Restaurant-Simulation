@@ -3,26 +3,29 @@ import { Button, Card } from "react-bootstrap";
 import axios from "axios";
 import { Order } from "../../models/models";
 
-interface Props {
+interface OrderProps {
   order: Order;
   orders: Order[];
   setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
-const KitchenOrderCard: React.FC<Props> = ({
+const KitchenOrderCard: React.FC<OrderProps> = ({
   order,
   orders,
   setOrders,
-}: Props) => {
+}: OrderProps) => {
   
+  //  when an order has been completed, remove the order from
+  //  database and the page
   const handleRemoveOrder = (id: number) => {
     const apiUrl = `http://localhost:3001/orders/${order.id}`;
 
     axios
       .delete(apiUrl)
       .then((response) => {
-        console.log("Resource deleted successfully:", response);
+        console.log("Order deleted successfully:", response);
 
+        // all except the order that has been deleted gets rendered again
         setOrders(orders.filter((order) => order.id !== id));
       })
       .catch((error) => {

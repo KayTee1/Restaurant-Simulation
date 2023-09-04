@@ -4,8 +4,10 @@ import OrderCard from "../components/KitchenOrderCard";
 import { Order } from "../../models/models";
 
 interface OrderProps {
+  //  Order = order object(id,name,img)
   orders: Order[];
   setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
+  //  isEmpty = are there orders for the kitchen
   isEmpty: boolean;
   setIsEmpty: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -17,11 +19,12 @@ const Kitchen: React.FC<OrderProps> = ({
   setIsEmpty,
 }: OrderProps) => {
   useEffect(() => {
-    const apiLink = "http://localhost:3001/orders";
-    axios.get(apiLink).then((response) => {
+    //array of order objects
+    const ordersApiLink = "http://localhost:3001/orders";
+    axios.get(ordersApiLink).then((response) => {
       const ordersFromApi = response.data;
       setOrders(ordersFromApi);
-
+      //  if there are no orders in the database isEmpty = true
       setIsEmpty(ordersFromApi.length === 0);
     });
   });
@@ -29,7 +32,7 @@ const Kitchen: React.FC<OrderProps> = ({
   return (
     <>
       <h1>Kitchen</h1>
-
+      
       {isEmpty ? (
         <h2 className="mt-5">No Orders</h2>
       ) : (
