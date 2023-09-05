@@ -18,6 +18,7 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
 
   useEffect(() => {
     if (Object.keys(orderData).length > 0) {
+      /*
       axios
         .post("http://localhost:3001/orders", orderData)
         .then((response) => {
@@ -38,6 +39,7 @@ const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
         .catch((error) => {
           console.error("Error placing order in /orderHistory:", error);
         });
+        */
     }
   }, [orderData]);
 
