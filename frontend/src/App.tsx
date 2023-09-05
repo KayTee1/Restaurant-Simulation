@@ -14,9 +14,13 @@ const App: React.FC = () => {
   const [foodNames, setFoodNames] = useState<string[]>([]);
   const [isOrderHistoryEmpty, setOrderHistoryEmpty] = useState<boolean>(true);
 
+  const handleOrderItems = () => {
+    alert("YA")
+  };
+
   return (
     <>
-      <NavBar />
+      <NavBar handleOrderItems={handleOrderItems} />
       <Container className="mb-4">
         <Routes>
           <Route path="/" element={<Menu />} />

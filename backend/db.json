@@ -57,31 +57,9 @@
     }
   ],
   "orders": [
-    {
-      "id": 1,
-      "name": "Salad",
-      "image": "../imgs/salad.png"
-    },
-    {
-      "id": 2,
-      "name": "Mozzarella Sticks",
-      "image": "../imgs/mozzarellaSticks.png"
-    },
-    {
-      "id": 3,
-      "name": "Salad",
-      "image": "../imgs/salad.png"
-    },
-    {
-      "id": 4,
-      "name": "Steak",
-      "image": "../imgs/steak.png"
-    },
-    {
-      "id": 5,
-      "name": "Ice Cream",
-      "image": "../imgs/iceCream.png"
-    }
+   
   ],
-  "orderHistory": []
+  "orderHistory": [
+    
+  ]
 }
