@@ -6,10 +6,14 @@ export interface MenuItem {
   description: string;
   imgUrl: string;
 }
+export interface CartDataItem {
+  id: number;
+  name: string;
+  image: string;
+}
 
 export interface Order {
   id: number;
   name: string;
   image: string;
 }
-

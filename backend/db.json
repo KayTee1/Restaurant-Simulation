@@ -56,10 +56,6 @@
       ]
     }
   ],
-  "orders": [
-   
-  ],
-  "orderHistory": [
-    
-  ]
+  "orders": [],
+  "orderHistory": []
 }
