@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-const NavBar: React.FC = ({ handleOrderItems }) => {
+type functionProps = {
+  handleOrderItems: () => void;
+};
+const NavBar: React.FC<functionProps> = ({
+  handleOrderItems,
+}: functionProps) => {
   const [onMenu, setOnMenu] = useState<boolean>(true);
 
   const handleExitMenu = () => {
@@ -10,7 +15,7 @@ const NavBar: React.FC = ({ handleOrderItems }) => {
   };
   const handleEnterMenu = () => {
     setOnMenu(true);
-  }
+  };
   return (
     <>
       <NavbarBs className="bg-white shadow-sm mb-3">

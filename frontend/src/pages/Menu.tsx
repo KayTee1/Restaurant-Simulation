@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
 import SingleMenuItem from "../components/SingleMenuItem";
-import { MenuItem } from "../../models/models";
+import { CartDataItem, MenuItem } from "../../models/models";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
-const Menu: React.FC = () => {
+interface Props {
+  cartData: CartDataItem[];
+  setCartData: React.Dispatch<React.SetStateAction<CartDataItem[]>>;
+  ordersCount: number;
+  setOrdersCount: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Menu: React.FC<Props> = ({
+  cartData,
+  setCartData,
+  ordersCount,
+  setOrdersCount,
+}: Props) => {
   const [menu, setMenu] = useState<MenuItem[]>([]);
   const [restaurantName, setRestaurantName] = useState<string>("");
-  
+
   useEffect(() => {
     axios.get("http://localhost:3001/restaurant").then((response) => {
-    setMenu(response.data[0].menu);
+      setMenu(response.data[0].menu);
       setRestaurantName(response.data[0].name);
     });
   }, []);
@@ -27,7 +39,13 @@ const Menu: React.FC = () => {
       <Row md={2} xs={1} className="g-3">
         {appetizers.map((item) => (
           <Col key={item.id}>
-            <SingleMenuItem menuItem={item} />
+            <SingleMenuItem
+              menuItem={item}
+              cartData={cartData}
+              setCartData={setCartData}
+              ordersCount={ordersCount}
+              setOrdersCount={setOrdersCount}
+            />
           </Col>
         ))}
       </Row>
@@ -36,7 +54,13 @@ const Menu: React.FC = () => {
       <Row md={2} xs={1} className="g-3">
         {mainCourse.map((item) => (
           <Col key={item.id}>
-            <SingleMenuItem menuItem={item} />
+            <SingleMenuItem
+              menuItem={item}
+              cartData={cartData}
+              setCartData={setCartData}
+              ordersCount={ordersCount}
+              setOrdersCount={setOrdersCount}
+            />
           </Col>
         ))}
       </Row>
@@ -45,7 +69,13 @@ const Menu: React.FC = () => {
       <Row md={2} xs={1} className="g-3">
         {desserts.map((item) => (
           <Col key={item.id}>
-            <SingleMenuItem menuItem={item} />
+            <SingleMenuItem
+              menuItem={item}
+              cartData={cartData}
+              setCartData={setCartData}
+              ordersCount={ordersCount}
+              setOrdersCount={setOrdersCount}
+            />
           </Col>
         ))}
       </Row>

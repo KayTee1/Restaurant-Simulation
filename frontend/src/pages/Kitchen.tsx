@@ -18,6 +18,7 @@ const Kitchen: React.FC<OrderProps> = ({
   isEmpty,
   setIsEmpty,
 }: OrderProps) => {
+  
   useEffect(() => {
     //array of order objects
     const ordersApiLink = "http://localhost:3001/orders";
@@ -28,7 +29,7 @@ const Kitchen: React.FC<OrderProps> = ({
       setIsEmpty(ordersFromApi.length === 0);
     });
   });
-
+  
   return (
     <>
       <h1>Kitchen</h1>

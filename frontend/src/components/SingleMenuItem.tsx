@@ -1,55 +1,35 @@
-import React, { useState, useEffect } from "react";
-import { MenuItem } from "../../models/models";
+import React, { useState } from "react";
+import { CartDataItem, MenuItem } from "../../models/models";
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
-import axios from "axios";
 
 interface Props {
   menuItem: MenuItem;
-  setMenu?: React.Dispatch<React.SetStateAction<MenuItem[]>>;
+  cartData: CartDataItem[];
+  setCartData: React.Dispatch<React.SetStateAction<CartDataItem[]>>;
+  ordersCount: number;
+  setOrdersCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const SingleMenuItem: React.FC<Props> = ({ menuItem }: Props) => {
+const SingleMenuItem: React.FC<Props> = ({
+  menuItem,
+  cartData,
+  setCartData,
+  ordersCount,
+  setOrdersCount,
+}: Props) => {
   const { name, price, imgUrl } = menuItem;
 
   const [quantity, setQuantity] = useState<number>(0);
-  const [orderData, setOrderData] = useState({});
-  const [ordersCount, setOrdersCount] = useState<number>(0);
-
-  useEffect(() => {
-    if (Object.keys(orderData).length > 0) {
-      /*
-      axios
-        .post("http://localhost:3001/orders", orderData)
-        .then((response) => {
-          console.log("Order placed in /orders successfully:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error placing order in /orders:", error);
-        });
-
-      axios
-        .post("http://localhost:3001/orderHistory", orderData)
-        .then((response) => {
-          console.log(
-            "Order placed in /orderHistory successfully:",
-            response.data
-          );
-        })
-        .catch((error) => {
-          console.error("Error placing order in /orderHistory:", error);
-        });
-        */
-    }
-  }, [orderData]);
 
   const addOrder = (name: string, imgUrl: string) => {
     setQuantity(quantity + 1);
-    setOrderData({
+    const newOrder = {
       id: ordersCount,
       name: name,
       image: imgUrl,
-    });
+    };
+    setCartData([...cartData, newOrder]);
     setOrdersCount(ordersCount + 1);
   };
 
