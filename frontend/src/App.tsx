@@ -21,11 +21,11 @@ const App: React.FC = () => {
   const navigate = useNavigate();
 
   const handleOrderItems = () => {
+    // Check if cartData is not empty
     if (cartData.length > 0) {
-      // Check if cartData is not empty
-
+      
       cartData.forEach((orderObject, index) => {
-        const modifiedOrderObject = { ...orderObject, id: index + 1 }; // Increment the ID
+        const modifiedOrderObject = { ...orderObject, id: index + 1 };
 
         axios
           .post("http://localhost:3001/orders", modifiedOrderObject)
