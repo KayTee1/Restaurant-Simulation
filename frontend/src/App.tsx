@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const handleOrderItems = () => {
     // Check if cartData is not empty
     if (cartData.length > 0) {
-      
+
       cartData.forEach((orderObject, index) => {
         const modifiedOrderObject = { ...orderObject, id: index + 1 };
 

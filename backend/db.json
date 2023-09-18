@@ -56,6 +56,17 @@
       ]
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": 1,
+      "name": "Mozzarella Sticks",
+      "image": "../imgs/mozzarellaSticks.png"
+    },
+    {
+      "id": 2,
+      "name": "Burger",
+      "image": "../imgs/burger.png"
+    }
+  ],
   "orderHistory": []
 }
