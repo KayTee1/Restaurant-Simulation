@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import axios from "axios";
-import { Order } from "../../models/models";
+import { Order } from "../../../models/models";
 
 interface OrderProps {
   order: Order;
@@ -14,7 +14,7 @@ const KitchenOrderCard: React.FC<OrderProps> = ({
   orders,
   setOrders,
 }: OrderProps) => {
-  
+
   //  when an order has been completed, remove the order from
   //  database and the page
   const handleRemoveOrder = (id: number) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleMenuItem from "../components/SingleMenuItem";
-import { CartDataItem, MenuItem } from "../../models/models";
+import { CartDataItem, MenuItem } from "../../../models/models";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
