@@ -1,26 +1,27 @@
-# Restaurant Ordering System
+# React + TypeScript + Vite
 
-## Description
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-The Restaurant Ordering System is a web application that allows customers to browse a restaurant's menu, place orders, and view order history. Additionally, it provides a kitchen view for chefs to see incoming orders.
+Currently, two official plugins are available:
 
-## Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- **Menu Display**: Customers can view the restaurant's menu, which includes various categories such as Main Course, Appetizers, and Desserts.
+## Expanding the ESLint configuration
 
-- **Order Placement**: Customers can add items from the menu to their cart and place orders. Each item can have a specified quantity.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- **Kitchen View**: Chefs have access to a kitchen view where they can see incoming orders and mark them as "Ready" once prepared.
+- Configure the top-level `parserOptions` property like this:
 
-- **Order History**: Customers and staff can view the order history, providing a record of past orders.
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-- **Reset Chart**: A feature to reset the order history chart is available, which can be useful for administrative purposes.
-
-## Technologies Used
-
-- Frontend: React.js
-- Backend: Node.js and Express.js
-- Database: JSON files
-- Charting Library: Chart.js
-- Styling: Bootstrap
-
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
