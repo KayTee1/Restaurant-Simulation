@@ -14,7 +14,7 @@ const KitchenOrderCard: React.FC<OrderProps> = ({
   orders,
   setOrders,
 }: OrderProps) => {
-  
+
   //  when an order has been completed, remove the order from
   //  database and the page
   const handleRemoveOrder = (id: number) => {
