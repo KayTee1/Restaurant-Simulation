@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import axios from "axios";
-import { Order } from "../../../models/models";
+import { Order } from "../../models/models";
 
 interface OrderProps {
   order: Order;

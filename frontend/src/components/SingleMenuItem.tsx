@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CartDataItem, MenuItem } from "../../../models/models";
+import { CartDataItem, MenuItem } from "../../models/models";
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
 

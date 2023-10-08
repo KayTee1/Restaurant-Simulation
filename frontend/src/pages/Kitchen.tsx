@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import OrderCard from "../components/KitchenOrderCard";
-import { Order } from "../../../models/models";
+import { Order } from "../../models/models";
 
 interface OrderProps {
   //  Order = order object(id,name,img)

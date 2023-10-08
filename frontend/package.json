@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "server": "json-server -p3001 --watch ./backend/db.json",
-    "start": "node ./backend/app.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.5.0",

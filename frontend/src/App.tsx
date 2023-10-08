@@ -5,7 +5,7 @@ import Menu from "./pages/Menu";
 import Kitchen from "./pages/Kitchen";
 import Orders from "./pages/Orders";
 import NavBar from "./components/NavBar";
-import { Order, CartDataItem } from "../../models/models";
+import { Order, CartDataItem } from "../models/models";
 import axios from "axios";
 
 const App: React.FC = () => {
