@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 
 const DB_FILE_PATH = "./db.json";
 
-export const fetchMenuItemsFromDatabase = async (): Promise<any> => {
+const fetchMenuItemsFromDatabase = async (): Promise<any> => {
   try {
     const jsonData = await jsonfile.readFile(DB_FILE_PATH);
     return jsonData.restaurant[0].menu;

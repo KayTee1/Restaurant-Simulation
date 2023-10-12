@@ -3,6 +3,6 @@ import { getMenu } from "../controllers/menuController.js";
 
 const menuRouter: Router = express.Router();
 
-menuRouter.get("/menu", getMenu);
+menuRouter.get("/", getMenu);
 
 export default menuRouter;
